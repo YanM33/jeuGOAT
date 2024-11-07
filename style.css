@@ -1,0 +1,69 @@
+#gameContainer {
+    width: 600px;
+    height: 300px;
+    border: 2px solid #000;
+    position: relative;
+    overflow: hidden;
+    background-color: #cc55ff; /* Couleur de fond personnalisable */
+}
+
+#goat {
+    width: 50px;
+    height: 50px;
+    background-image: url('images/chevre-test.jpg'); /* Remplace par l'image de ta chèvre */
+    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+}
+
+.obstacle {
+    width: 30px;
+    height: 50px;
+    background-color: #000;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    animation: moveObstacle 2s linear infinite;
+}
+
+.obstacle.destroyed {
+    background-color: red; /* Change de couleur ou applique un effet */
+    animation: none; /* Arrête l'animation de mouvement */
+    opacity: 0.5; /* Exemple d'effet visuel */
+}
+
+@keyframes moveObstacle {
+    from { right: -30px; }
+    to { right: 100%; }
+}
+
+#goat.jump {
+    animation: jumpAnimation 0.5s ease-out forwards;
+}
+
+@keyframes jumpAnimation {
+    0% { bottom: 0; }
+    50% { bottom: 100px; } /* Hauteur du saut */
+    100% { bottom: 0; }
+}
+
+
+#restartButton {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff5555;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#restartButton:hover {
+    background-color: #ff7777;
+}
